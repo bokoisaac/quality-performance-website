@@ -127,7 +127,7 @@ export default function TermsOfService() {
 
                 <h3 className="mt-6 text-lg font-semibold text-white/90">Scope of Work</h3>
                 <p className="mt-3 text-base leading-relaxed text-white/70">
-                  PPF installations are performed by trained installers at authorized dealership locations. The specific products installed (including Door Edges, Door Cups, Rear Bumper Guard, Nav Screen, Front Sill, Rear Sill, Partial Hood, Headlight, and Side Mirror protection) are determined by the dealership&apos;s service agreement and the pricing configured for each dealership.
+                  PPF installations are performed by trained installers at authorized dealership locations. The specific products installed (including Door Edges, Door Cups, Nav Screen, Rear Bumper Guard, and Partial Hood protection) are determined by the dealership&apos;s service agreement and the pricing configured for each dealership.
                 </p>
 
                 <h3 className="mt-6 text-lg font-semibold text-white/90">Quality and Documentation</h3>

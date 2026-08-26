@@ -22,7 +22,7 @@ const inputClass =
   "w-full rounded-[6px] border border-border-dark bg-dark-tertiary px-4 py-3 text-sm text-text-primary placeholder:text-white/40 outline-none transition-colors duration-200";
 
 // "How can we help you?" interest options. The install-point package reflects
-// the five points Josh specified (headlights + side mirrors intentionally out).
+// the five live points, see `liveInstallPointSlugs` in src/lib/siteConfig.ts.
 const interestOptions = [
   "Install-point packages (door edges, door cups, screen, rear bumper, partial hood)",
   "Custom addenda",

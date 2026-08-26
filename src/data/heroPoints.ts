@@ -12,6 +12,8 @@
  * dark, so the caption is pinned there rather than positioned per image.
  */
 
+import { isLiveInstallPoint } from "@/lib/siteConfig";
+
 export interface HeroPoint {
   id: string;
   slug: string;
@@ -23,7 +25,7 @@ export interface HeroPoint {
 
 const CDN = "https://res.cloudinary.com/dwajqgdxw/image/upload";
 
-export const heroPoints: HeroPoint[] = [
+export const allHeroPoints: HeroPoint[] = [
   {
     id: "door-edges",
     slug: "door-edge-guards",
@@ -73,3 +75,12 @@ export const heroPoints: HeroPoint[] = [
     image: `${CDN}/v1785435192/Sleek_LED_Headlight_in_Deep_Blue_Darkness_tgol4n.png`,
   },
 ];
+
+/**
+ * The frames the rotator cycles. Filtered by `liveInstallPointSlugs` in
+ * src/lib/siteConfig.ts, so the headlight artwork stays on hand without being
+ * shown.
+ */
+export const heroPoints: HeroPoint[] = allHeroPoints.filter((point) =>
+  isLiveInstallPoint(point.slug),
+);

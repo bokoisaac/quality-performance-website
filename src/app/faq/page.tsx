@@ -54,7 +54,7 @@ const faqs = [
       },
       {
         q: "What areas of the car can be protected?",
-        a: "We offer protection for door edges, door cups, door sills, rear bumpers, partial hoods, headlights, and infotainment screens. See our full services page for details on each product.",
+        a: "We offer protection for door edges, door cups, infotainment screens, rear bumpers, and partial hoods. See our full services page for details on each product.",
       },
     ],
   },

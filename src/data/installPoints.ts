@@ -1,3 +1,5 @@
+import { isLiveInstallPoint } from "@/lib/siteConfig";
+
 export interface InstallPoint {
   id: string;
   slug: string | null;
@@ -11,7 +13,11 @@ export interface InstallPoint {
   tags: string[];
 }
 
-export const installPoints: InstallPoint[] = [
+/**
+ * Every install point QP offers, including the ones not referenced publicly
+ * right now. Nothing renders from this list directly, see `installPoints`.
+ */
+export const allInstallPoints: InstallPoint[] = [
   {
     id: "headlights",
     slug: "headlight-protection",
@@ -125,3 +131,12 @@ export const installPoints: InstallPoint[] = [
     tags: ["Self-Healing", "5-Year Warranty", "Made in USA"],
   },
 ];
+
+/**
+ * The install points shown on the site. Filtered by `liveInstallPointSlugs`
+ * in src/lib/siteConfig.ts, so door sills, headlights and side mirrors keep
+ * their data here while staying off every public surface.
+ */
+export const installPoints: InstallPoint[] = allInstallPoints.filter((point) =>
+  isLiveInstallPoint(point.slug),
+);

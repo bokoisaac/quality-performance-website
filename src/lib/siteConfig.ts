@@ -90,14 +90,27 @@ export const contact = {
 };
 
 /**
- * The install points highlighted for dealers, in the order Josh specified.
- * Maps to slugs in src/data/products.ts. Headlights and side mirrors are
- * intentionally excluded from the dealer-facing highlight set.
+ * The install points referenced anywhere online, in the order Josh specified.
+ *
+ * Per Josh (2026-08-26), both the dealer site and the consumer /protected
+ * experience show these five and nothing else. Door sills, headlights and side
+ * mirrors are still installed products and their data/copy stays in the repo,
+ * they are simply not referenced publicly for now, add the slug back here to
+ * bring one online across every surface at once.
+ *
+ * Maps to slugs in src/data/products.ts. Every install-point dataset
+ * (products, installPoints, coveragePoints, heroPoints) filters through this,
+ * so this list is the single place that decides what is public.
  */
-export const dealerInstallPointSlugs = [
+export const liveInstallPointSlugs = [
   "door-edge-guards",
   "door-cup-guards",
   "screen-protection",
   "rear-bumper-guard",
   "partial-hood-shield",
 ] as const;
+
+/** True when an install point / product slug is currently public. */
+export function isLiveInstallPoint(slug: string | null): boolean {
+  return slug !== null && (liveInstallPointSlugs as readonly string[]).includes(slug);
+}

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { installPoints } from "@/data/installPoints";
-import { dealerInstallPointSlugs } from "@/lib/siteConfig";
+import { liveInstallPointSlugs } from "@/lib/siteConfig";
 
 /**
  * DealerCoverageMap (Josh sync, QP-157; redesigned per Boko's feedback).
@@ -15,7 +15,7 @@ import { dealerInstallPointSlugs } from "@/lib/siteConfig";
  * instant. Hover, focus, and tap all drive the selection.
  */
 
-const points = dealerInstallPointSlugs
+const points = liveInstallPointSlugs
   .map((slug) => installPoints.find((p) => p.slug === slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 

@@ -1,3 +1,5 @@
+import { isLiveInstallPoint } from "@/lib/siteConfig";
+
 export interface ProductData {
   slug: string;
   name: string;
@@ -15,7 +17,11 @@ export interface ProductData {
   };
 }
 
-export const products: ProductData[] = [
+/**
+ * Every product QP installs, including the ones not referenced publicly right
+ * now. Nothing renders from this list directly, see `products`.
+ */
+export const allProducts: ProductData[] = [
   {
     slug: "door-edge-guards",
     name: "Door Edge Guards",
@@ -42,7 +48,7 @@ export const products: ProductData[] = [
       Warranty: "5-year manufacturer warranty included",
       Installation: "Professional precision-cut application",
     },
-    relatedProducts: ["door-cup-guards", "door-sill-guards", "partial-hood-shield"],
+    relatedProducts: ["door-cup-guards", "partial-hood-shield", "rear-bumper-guard"],
     seo: {
       title: "Door Edge Paint Protection Film | Quality Performance",
       description:
@@ -76,7 +82,7 @@ export const products: ProductData[] = [
       Warranty: "5-year manufacturer warranty included",
       Installation: "Professional precision-cut application",
     },
-    relatedProducts: ["door-edge-guards", "door-sill-guards", "screen-protection"],
+    relatedProducts: ["door-edge-guards", "screen-protection", "rear-bumper-guard"],
     seo: {
       title: "Door Cup Paint Protection Film | Quality Performance",
       description:
@@ -144,7 +150,7 @@ export const products: ProductData[] = [
       Warranty: "Manufacturer warranty included",
       Installation: "Precision-cut to screen dimensions",
     },
-    relatedProducts: ["door-cup-guards", "door-edge-guards", "headlight-protection"],
+    relatedProducts: ["door-cup-guards", "door-edge-guards", "rear-bumper-guard"],
     seo: {
       title: "Navigation Screen Protection Film | Quality Performance",
       description:
@@ -178,7 +184,7 @@ export const products: ProductData[] = [
       Warranty: "5-year manufacturer warranty included",
       Installation: "Professional full-coverage application",
     },
-    relatedProducts: ["partial-hood-shield", "door-sill-guards", "headlight-protection"],
+    relatedProducts: ["partial-hood-shield", "door-edge-guards", "screen-protection"],
     seo: {
       title: "Rear Bumper Paint Protection Film | Quality Performance",
       description:
@@ -212,7 +218,7 @@ export const products: ProductData[] = [
       Warranty: "5-year manufacturer warranty included",
       Installation: "Professional precision-cut application",
     },
-    relatedProducts: ["rear-bumper-guard", "headlight-protection", "door-edge-guards"],
+    relatedProducts: ["rear-bumper-guard", "door-edge-guards", "door-cup-guards"],
     seo: {
       title: "Partial Hood Paint Protection Film | Quality Performance",
       description:
@@ -255,6 +261,17 @@ export const products: ProductData[] = [
     },
   },
 ];
+
+/**
+ * The products the site sells online. Filtered by `liveInstallPointSlugs` in
+ * src/lib/siteConfig.ts, which drives nav, the services index, the sitemap and
+ * the static params for /services/[slug], so an offline product's page 404s
+ * rather than sitting unlinked and indexable. Add the slug back to that list
+ * to bring the page and every mention of it back.
+ */
+export const products: ProductData[] = allProducts.filter((p) =>
+  isLiveInstallPoint(p.slug),
+);
 
 export function getProductBySlug(slug: string): ProductData | undefined {
   return products.find((p) => p.slug === slug);

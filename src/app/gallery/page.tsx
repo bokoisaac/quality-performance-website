@@ -16,8 +16,6 @@ const galleryImages = [
   { src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80", alt: "Complete vehicle protection", caption: "Full Door Package" },
   { src: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80", alt: "Dealership lot vehicle protection", caption: "Dealership Fleet" },
   { src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80", alt: "Rear bumper PPF application", caption: "Rear Bumper Guard" },
-  { src: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&q=80", alt: "Headlight protection film", caption: "Headlight Protection" },
-  { src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80", alt: "Door sill guard installation", caption: "Door Sill Guards" },
   { src: "https://images.unsplash.com/photo-1542362567-b07e54358753?w=600&q=80", alt: "Screen protection on infotainment", caption: "Screen Protection" },
   { src: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80", alt: "Door cup guard detail", caption: "Door Cup Guards" },
 ];

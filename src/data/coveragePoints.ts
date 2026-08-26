@@ -10,6 +10,8 @@
  * a parking lot, not by a dealer principal.
  */
 
+import { isLiveInstallPoint } from "@/lib/siteConfig";
+
 export interface CoveragePoint {
   id: string;
   /** Matching service page slug, for the "learn more" link. */
@@ -27,7 +29,7 @@ export interface CoveragePoint {
 const BUCKET =
   "https://tbkdlwkmomsuzfwfofoy.supabase.co/storage/v1/object/public/site-images";
 
-export const coveragePoints: CoveragePoint[] = [
+export const allCoveragePoints: CoveragePoint[] = [
   {
     id: "door-edges",
     slug: "door-edge-guards",
@@ -99,3 +101,12 @@ export const coveragePoints: CoveragePoint[] = [
     motion: null,
   },
 ];
+
+/**
+ * The points the sequence actually plays. Filtered by `liveInstallPointSlugs`
+ * in src/lib/siteConfig.ts, so door sills and headlights keep their copy and
+ * imagery here while staying off the page.
+ */
+export const coveragePoints: CoveragePoint[] = allCoveragePoints.filter((point) =>
+  isLiveInstallPoint(point.slug),
+);

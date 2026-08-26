@@ -178,7 +178,7 @@ export default function VinDecoderPage() {
                     {[
                       { href: "/services/partial-hood-shield", name: "Partial Hood Shield" },
                       { href: "/services/door-edge-guards", name: "Door Edge Guards" },
-                      { href: "/services/headlight-protection", name: "Headlight Protection" },
+                      { href: "/services/rear-bumper-guard", name: "Rear Bumper Guard" },
                     ].map((service) => (
                       <li key={service.href}>
                         <Link
