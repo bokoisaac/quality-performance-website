@@ -44,6 +44,15 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
+/* ─── Zoho SalesIQ launcher ───
+   The widget ships hardcoded 10px bottom/right offsets, which sits it
+   flush in the corner (and under the iOS home-indicator safe area on
+   mobile). Nudge it in with !important since it's third-party CSS. */
+.zsiq-float {
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  right: 20px !important;
+}
+
 /* ─── Type voice ───
    Body is Inter; display headlines are Inter Tight at heavy weights so
    they carry real presence without leaving the family. */
